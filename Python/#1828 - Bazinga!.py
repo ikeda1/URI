@@ -1,43 +1,20 @@
-T = int(input(""))
-for i in range (T):
-    sheldon, raj = input("").split()
+for i in range(int(input())):
+    sheldon, raj  = input().split()
     
-    if sheldon == raj:
-        result = "De novo!"
-        
-    elif sheldon == "tesoura":
-        if raj == "papel" or raj == "lagarto":
-            result = sheldon
-        else:
-            result = raj
-            
-    elif sheldon == "papel":
-        if raj == "pedra" or raj == "Spock":
-            result = sheldon
-        else:
-            result = raj
+    dict = {"pedra": ["tesoura", "lagarto"],
+            "papel": ["pedra", "Spock"],
+            "tesoura": ["papel", "lagarto"],
+            "lagarto": ["Spock", "papel"],
+            "Spock": ["tesoura", "pedra"]}
+    if raj in dict[sheldon]:
+        win = sheldon
+    else:
+        win = raj
     
-    elif sheldon == "pedra":
-        if raj == "lagarto" or raj == "tesoura":
-            result = sheldon
-        else:
-            result = raj
-    
-    elif sheldon == "lagarto":
-        if raj == "Spock" or raj == "papel":
-            result = sheldon
-        else:
-            result = raj
-    
-    elif sheldon == "Spock":
-        if raj == "tesoura" or raj == "pedra":
-            result = sheldon
-        else:
-            result = raj
-        
-    if result == sheldon:
-        result = "Bazinga!"
-    elif result == raj:
-        result = "Raj trapaceou!"
-    
-    print(f"Caso #{i+1}: {result}")
+    if raj == sheldon:
+        win = "De novo!"
+    elif win == sheldon:
+        win = "Bazinga!"
+    elif win == raj:
+        win = "Raj trapaceou!"
+    print(f"Caso #{i+1}: {win}")
