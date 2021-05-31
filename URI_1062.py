@@ -6,7 +6,6 @@ while(True):
 
     while(stop):
         Wagons = list(map(int, input().split()))
-        # wagon[i] = [int(x) for x in input().split()]
         if Wagons == [0]:
             print()
             stop = False;
